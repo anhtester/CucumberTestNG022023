@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StepsLoginCRM {
+
     @Given("I am on the login page")
     public void iAmOnTheLoginPage() {
     }
@@ -24,5 +25,17 @@ public class StepsLoginCRM {
 
     @And("I should see the {string} menu")
     public void iShouldSeeTheMenu(String arg0) {
+    }
+
+    @Given("there are {string} cucumbers")
+    public void thereAreCucumbers(String arg0) {
+    }
+
+    @When("I eat {string} cucumbers")
+    public void iEatCucumbers(String arg0) {
+    }
+
+    @Then("I should have {string} cucumbers")
+    public void iShouldHaveCucumbers(String arg0) {
     }
 }
