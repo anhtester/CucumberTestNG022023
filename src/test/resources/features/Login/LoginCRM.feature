@@ -6,8 +6,9 @@ Feature: Login to CRM
       Given I am on the login page
       When I enter my username and password
       And I click the Login button
-      Then I should be taken to the Dashboard page
+      Then I should be taken to the dashboard page
       And I should see the "Customers" menu
+      And I should see the notification displays
 
    Scenario Outline: eating
       Given there are "<start>" cucumbers

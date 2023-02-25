@@ -19,8 +19,12 @@ public class StepsLoginCRM {
     public void iClickTheLoginButton() {
     }
 
-    @Then("I should be taken to the Dashboard page")
+    @Then("I should be taken to the dashboard page")
     public void iShouldBeTakenToTheDashboardPage() {
+    }
+
+    @And("The message success displays")
+    public void theMessageSuccessDisplays() {
     }
 
     @And("I should see the {string} menu")
@@ -38,4 +42,6 @@ public class StepsLoginCRM {
     @Then("I should have {string} cucumbers")
     public void iShouldHaveCucumbers(String arg0) {
     }
+
+
 }
