@@ -1,5 +1,6 @@
 Feature: Login CMS
 
+   @success
    Scenario: Login success
       Given user navigate to Login page "https://cms.anhtester.com/login123"
       When user enter email "admin@example.com" and password "123456"

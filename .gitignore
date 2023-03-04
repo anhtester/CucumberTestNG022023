@@ -12,3 +12,9 @@ buildNumber.properties
 .idea/
 allure-results/
 logs/
+screenshots/
+*.png
+*.jpg
+*.avi
+*.mp4
+reports/

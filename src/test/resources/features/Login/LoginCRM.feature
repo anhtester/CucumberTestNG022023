@@ -9,12 +9,3 @@ Feature: Login to CRM
       Then I should be taken to the dashboard page
       And I should see the "Customers" menu
       And I should see the notification displays
-
-   Scenario Outline: eating
-      Given there are "<start>" cucumbers
-      When I eat "<eat>" cucumbers
-      Then I should have "<left>" cucumbers
-      Examples:
-         | start | eat | left |
-         | 12    | 5   | 7    |
-         | 20    | 5   | 15   |

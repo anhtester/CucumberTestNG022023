@@ -22,4 +22,5 @@ public class StepsLoginCMS {
     @Then("user redirect to admin page {string}")
     public void userRedirectToAdminPage(String arg0) {
     }
+    
 }

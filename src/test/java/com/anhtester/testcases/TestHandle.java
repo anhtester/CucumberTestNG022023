@@ -1,18 +1,28 @@
 package com.anhtester.testcases;
 
-import com.anhtester.helpers.PropertiesHelper;
-import com.anhtester.utils.Log;
+import com.anhtester.helpers.ExcelHelpers;
+import com.anhtester.helpers.PropertiesHelpers;
+import com.anhtester.utils.LogUtils;
 import org.testng.annotations.Test;
 
 public class TestHandle {
     @Test
     public void testReadPropertiesFile() {
-        PropertiesHelper.loadAllFiles();
-        System.out.println(PropertiesHelper.getValue("URL"));
+        PropertiesHelpers.loadAllFiles();
+        System.out.println(PropertiesHelpers.getValue("BROWSER"));
+    }
+
+    @Test
+    public void testReadExcelData() {
+        ExcelHelpers excelHelpers = new ExcelHelpers();
+        excelHelpers.setExcelFile("src/test/resources/datatest/CRM.xlsx", "Login");
+        System.out.println(excelHelpers.getCellData("EMAIL", 1));
+        System.out.println(excelHelpers.getCellData("PASSWORD", 1));
     }
 
     @Test
     public void testLog4j2() {
-        Log.info("Cucumber TestNG");
+        LogUtils.info("Cucumber TestNG");
     }
+    
 }

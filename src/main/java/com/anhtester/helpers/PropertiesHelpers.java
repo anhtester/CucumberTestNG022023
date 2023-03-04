@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Properties;
 
-public class PropertiesHelper {
+public class PropertiesHelpers {
 
     private static Properties properties;
     private static String linkFile;
@@ -25,13 +25,15 @@ public class PropertiesHelper {
 
             for (String f : files) {
                 Properties tempProp = new Properties();
-                linkFile = SystemsHelper.getCurrentDir() + f;
+                linkFile = SystemsHelpers.getCurrentDir() + f;
                 file = new FileInputStream(linkFile);
                 tempProp.load(file);
                 properties.putAll(tempProp);
             }
+            System.out.println("Load all file properties successfully.");
             return properties;
         } catch (IOException ioe) {
+            System.out.println("Không load được properties file. Khởi tạo Properties Null.");
             return new Properties();
         }
     }
@@ -39,7 +41,7 @@ public class PropertiesHelper {
     public static void setFile(String relPropertiesFilePath) {
         properties = new Properties();
         try {
-            linkFile = SystemsHelper.getCurrentDir() + relPropertiesFilePath;
+            linkFile = SystemsHelpers.getCurrentDir() + relPropertiesFilePath;
             file = new FileInputStream(linkFile);
             properties.load(file);
             file.close();
@@ -51,7 +53,7 @@ public class PropertiesHelper {
     public static void setDefaultFile() {
         properties = new Properties();
         try {
-            linkFile = SystemsHelper.getCurrentDir() + relPropertiesFilePathDefault;
+            linkFile = SystemsHelpers.getCurrentDir() + relPropertiesFilePathDefault;
 
             file = new FileInputStream(linkFile);
             properties.load(file);
@@ -62,38 +64,39 @@ public class PropertiesHelper {
     }
 
     public static String getValue(String key) {
-        String keyval = null;
+        String value = null;
         try {
             if (file == null) {
                 properties = new Properties();
-                linkFile = SystemsHelper.getCurrentDir() + relPropertiesFilePathDefault;
+                linkFile = SystemsHelpers.getCurrentDir() + relPropertiesFilePathDefault;
                 file = new FileInputStream(linkFile);
                 properties.load(file);
                 file.close();
             }
             // Lấy giá trị từ file đã Set
-            keyval = properties.getProperty(key);
+            value = properties.getProperty(key);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return keyval;
+        return value;
     }
 
-    public static void setValue(String key, String keyValue) {
+    public static void setValue(String key, String value) {
         try {
             if (file == null) {
                 properties = new Properties();
-                file = new FileInputStream(SystemsHelper.getCurrentDir() + relPropertiesFilePathDefault);
+                file = new FileInputStream(SystemsHelpers.getCurrentDir() + relPropertiesFilePathDefault);
                 properties.load(file);
                 file.close();
-                out = new FileOutputStream(SystemsHelper.getCurrentDir() + relPropertiesFilePathDefault);
+                out = new FileOutputStream(SystemsHelpers.getCurrentDir() + relPropertiesFilePathDefault);
             }
             //Ghi vào cùng file Prop với file lấy ra
             out = new FileOutputStream(linkFile);
             System.out.println(linkFile);
-            properties.setProperty(key, keyValue);
+            properties.setProperty(key, value);
             properties.store(out, null);
             out.close();
+            System.out.println("Set " + key + " = " + value + " to properties file successfully.");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
