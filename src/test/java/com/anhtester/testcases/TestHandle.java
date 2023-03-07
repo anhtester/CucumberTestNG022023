@@ -1,11 +1,12 @@
 package com.anhtester.testcases;
 
+import com.anhtester.common.BaseTest;
 import com.anhtester.helpers.ExcelHelpers;
 import com.anhtester.helpers.PropertiesHelpers;
 import com.anhtester.utils.LogUtils;
 import org.testng.annotations.Test;
 
-public class TestHandle {
+public class TestHandle extends BaseTest {
     @Test
     public void testReadPropertiesFile() {
         PropertiesHelpers.loadAllFiles();
@@ -24,5 +25,5 @@ public class TestHandle {
     public void testLog4j2() {
         LogUtils.info("Cucumber TestNG");
     }
-    
+
 }

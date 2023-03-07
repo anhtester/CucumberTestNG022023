@@ -13,11 +13,18 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class BaseTest {
 
+    public static void createDriver() {
+        WebDriver driver = setupBrowser("chrome");
+        DriverManager.setDriver(driver);
+        //PropertiesHelpers.loadAllFiles();
+    }
+
     public static void createDriver(String browserName) {
         WebDriver driver = setupBrowser(browserName);
         DriverManager.setDriver(driver);
         //PropertiesHelpers.loadAllFiles();
     }
+
 
     //Viết hàm trung gian để lựa chọn Browser cần chạy với giá trị tham số "browser" bên trên truyền vào
     public static WebDriver setupBrowser(String browserName) {
