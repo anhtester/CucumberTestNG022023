@@ -7,7 +7,8 @@ import org.testng.annotations.Test;
 @CucumberOptions(
         features = "src/test/resources/features/Categories",
         glue = {"com.anhtester.stepdefinitions",
-                "com.anhtester.common"
+                "com.anhtester.common",
+                "com.anhtester.hooks"
         },
         plugin = {"pretty", "html:target/cucumber-html-report.html"},
         tags = ""

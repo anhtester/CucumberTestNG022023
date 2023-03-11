@@ -6,7 +6,7 @@ public class CommonStepDefinitions {
 
     @And("user should see the notification displays")
     public void iShouldSeeTheNotificationDisplays() {
-        //BaseTest.closeDriver();
+        
     }
 
 }

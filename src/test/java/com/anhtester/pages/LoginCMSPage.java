@@ -1,6 +1,5 @@
 package com.anhtester.pages;
 
-import com.anhtester.common.BaseTest;
 import com.anhtester.helpers.PropertiesHelpers;
 import org.openqa.selenium.By;
 
@@ -30,7 +29,6 @@ public class LoginCMSPage {
     }
 
     public CommonPage loginAdminRole() {
-        BaseTest.createDriver();
         openURL(PropertiesHelpers.getValue("URL"));
         setText(inputEmail, PropertiesHelpers.getValue("EMAIL"));
         setText(inputPassword, PropertiesHelpers.getValue("PASSWORD"));
