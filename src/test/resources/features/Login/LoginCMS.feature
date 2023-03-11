@@ -6,4 +6,4 @@ Feature: Login CMS
       When user enter email "admin@example.com" and password "123456"
       And click login button
       Then user redirect to admin page "https://cms.anhtester.com/admin"
-      And I should see the notification displays
+      And user should see the notification displays

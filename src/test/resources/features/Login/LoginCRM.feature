@@ -8,4 +8,4 @@ Feature: Login to CRM
       And I click the Login button
       Then I should be taken to the dashboard page
       And I should see the "Customers" menu
-      And I should see the notification displays
+      And user should see the notification displays

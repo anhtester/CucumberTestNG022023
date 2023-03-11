@@ -1,6 +1,5 @@
 package com.anhtester.stepdefinitions;
 
-import com.anhtester.common.BaseTest;
 import com.anhtester.constants.ConstantGlobal;
 import com.anhtester.helpers.CaptureHelpers;
 import com.anhtester.keywords.WebUI;
@@ -9,12 +8,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class StepsLoginCRM {
 
     @Given("I am on the login page")
     public void iAmOnTheLoginPage() {
-        BaseTest.createDriver("edge");
+        //BaseTest.createDriver("edge");
         WebUI.openURL(ConstantGlobal.URL);
     }
 
@@ -41,7 +41,7 @@ public class StepsLoginCRM {
 
     @And("I should see the {string} menu")
     public void iShouldSeeTheMenu(String arg0) {
-
+        Assert.assertEquals(arg0, "Customers", "Menu không đúng.");
     }
 
 }

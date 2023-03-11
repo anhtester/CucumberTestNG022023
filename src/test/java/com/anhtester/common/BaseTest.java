@@ -54,6 +54,7 @@ public class BaseTest {
 
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(ConstantGlobal.HEADLESS);
+        options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
@@ -67,6 +68,7 @@ public class BaseTest {
 
         EdgeOptions options = new EdgeOptions();
         options.setHeadless(ConstantGlobal.HEADLESS);
+        options.addArguments("--remote-allow-origins=*");
 
         driver = new EdgeDriver(options);
         driver.manage().window().maximize();
