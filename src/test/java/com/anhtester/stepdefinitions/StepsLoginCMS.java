@@ -3,13 +3,14 @@ package com.anhtester.stepdefinitions;
 import com.anhtester.common.BaseTest;
 import com.anhtester.driver.DriverManager;
 import com.anhtester.keywords.WebUI;
+import com.anhtester.pages.CommonPage;
 import com.anhtester.pages.LoginCMSPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class StepsLoginCMS {
+public class StepsLoginCMS extends CommonPage {
 
     LoginCMSPage loginCMSPage;
 

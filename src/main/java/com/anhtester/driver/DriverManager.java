@@ -21,4 +21,8 @@ public class DriverManager {
         DriverManager.driver.get().quit();
         driver.remove();
     }
+
+    public static void close() {
+        DriverManager.driver.get().close();
+    }
 }

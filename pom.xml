@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.8.1</version>
+            <version>4.8.3</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
@@ -40,27 +40,27 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.11.1</version>
+            <version>7.11.2</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>7.11.1</version>
+            <version>7.11.2</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-gherkin -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-gherkin</artifactId>
-            <version>7.11.1</version>
+            <version>7.11.2</version>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
-            <version>7.11.1</version>
+            <version>7.11.2</version>
             <scope>test</scope>
         </dependency>
 
@@ -146,14 +146,14 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.20.1</version>
+            <version>2.21.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-attachments -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-attachments</artifactId>
-            <version>2.20.1</version>
+            <version>2.21.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
@@ -161,6 +161,12 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.9.19</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>1.8.0</version>
         </dependency>
 
     </dependencies>

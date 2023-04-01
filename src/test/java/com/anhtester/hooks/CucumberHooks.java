@@ -1,6 +1,6 @@
 package com.anhtester.hooks;
 
-import com.anhtester.common.BaseTest;
+import com.anhtester.driver.DriverManager;
 import com.anhtester.helpers.CaptureHelpers;
 import com.anhtester.helpers.PropertiesHelpers;
 import io.cucumber.java.*;
@@ -22,14 +22,14 @@ public class CucumberHooks {
     @Before
     public void beforeScenario() {
         System.out.println("================ beforeScenario ================");
-        BaseTest.createDriver();
+        //BaseTest.createDriver();
         //Record video
     }
 
     @After
     public void afterScenario(Scenario scenario) {
         System.out.println("================ afterScenario ================");
-        BaseTest.closeDriver();
+        DriverManager.quit();
     }
 
     @BeforeStep

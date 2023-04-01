@@ -7,10 +7,6 @@ import static com.anhtester.keywords.WebUI.*;
 
 public class LoginCMSPage {
 
-    static {
-        PropertiesHelpers.loadAllFiles();
-    }
-
     //Khai báo Objects
     private By inputEmail = By.xpath("//input[@id='email']");
     private By inputPassword = By.xpath("//input[@id='password']");
