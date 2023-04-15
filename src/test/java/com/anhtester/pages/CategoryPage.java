@@ -13,25 +13,40 @@ public class CategoryPage {
     private By inputMetaTitle = By.xpath("//input[@placeholder='Meta Title']");
     private By inputMetaDescription = By.xpath("//textarea[@name='meta_description']");
     private By buttonSave = By.xpath("//button[normalize-space()='Save']");
+    private By messageAlert = By.xpath("//span[@data-notify='message']");
 
     private By inputSearch = By.xpath("//input[@id='search']");
+    private By categoryNameFirstRow = By.xpath("//tbody/tr[1]/td[2]");
+
 
     public void clickAddNewButton() {
         clickElement(buttonAddNewCategory);
     }
 
     public void searchCategory(String categoryName) {
+        waitForPageLoaded();
         setTextAndKey(inputSearch, categoryName, Keys.ENTER);
     }
 
-    public void inputDataCategory() {
-        setText(inputCategoryName, DataGenerateUtils.getProgrammingLanguage());
-        setText(inputOrderingNumber, String.valueOf(DataGenerateUtils.getOrderNumber()));
-        setText(inputMetaTitle, DataGenerateUtils.getProgrammingLanguage());
-        setText(inputMetaDescription, DataGenerateUtils.getFunnyName());
+    public void checkCategoryDisplayed(String categoryName) {
+        searchCategory(categoryName);
+        verifyElementVisible(categoryNameFirstRow, "The new category not found.");
+        verifyEquals(getElementText(categoryNameFirstRow), categoryName, "The new category name not match.");
+    }
+
+    public void inputDataCategory(String categoryName, String orderNumber, String metaTitle, String description) {
+        waitForPageLoaded();
+        setText(inputCategoryName, categoryName);
+        setText(inputOrderingNumber, orderNumber);
+        setText(inputMetaTitle, metaTitle);
+        setText(inputMetaDescription, description);
     }
 
     public void clickSaveButton() {
         clickElement(buttonSave);
+    }
+
+    public void verifyAlertSuccessDisplayed() {
+        verifyElementVisible(messageAlert, "The alert message success not visible.");
     }
 }

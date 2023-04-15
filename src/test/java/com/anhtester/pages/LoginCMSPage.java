@@ -5,14 +5,30 @@ import org.openqa.selenium.By;
 
 import static com.anhtester.keywords.WebUI.*;
 
-public class LoginCMSPage {
+public class LoginCMSPage extends CommonPage {
 
+    private String URL = "https://cms.anhtester.com/login";
     //Khai báo Objects
+    private By labelLoginPage = By.xpath("//p[normalize-space()='Login to your account.']");
     private By inputEmail = By.xpath("//input[@id='email']");
     private By inputPassword = By.xpath("//input[@id='password']");
     private By buttonLogin = By.xpath("//button[normalize-space()='Login']");
     private By messageAlert = By.xpath("//div[@role='alert']");
 
+    public void goToLoginPage(){
+        openURL(URL);
+        //Xác nhận 1 cái element thuộc trang Login đang hiển thị
+        verifyElementVisible(labelLoginPage);
+    }
+
+    public void verifyRedirectToAdminPage(){
+        verifyElementVisible(avatarProfile, "Can not redirect to Admin page.");
+    }
+
+    public void userShouldSeeAnErrorMessage(){
+        verifyElementVisible(messageAlert, "The Error message not visible.");
+        verifyEquals(getElementText(messageAlert), "Invalid login credentials", "The content of Error message not match.");
+    }
 
     //Hàm xử lý đặc trưng cho Login Page
     public void enterEmailAndPassword(String email, String password) {
@@ -39,5 +55,7 @@ public class LoginCMSPage {
         clickLoginButton();
         return new CommonPage();
     }
+
+
 
 }

@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="My Test Suite">
+
+    <test name="My Test">
+        <parameter name="cucumber.filter.tags" value="@SuccessfulLogin or @InvalidLogin" />
+        <classes>
+            <class name="com.anhtester.runners.TestRunnerLoginCMS" />
+        </classes>
+    </test>
+
+</suite>

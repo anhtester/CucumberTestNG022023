@@ -16,6 +16,8 @@ public class CommonPage {
 
     private By buttonEdit = By.xpath("(//a[@title='Edit'])[1]");
     private By inputSearch = By.xpath("//input[@id='search']");
+    public By avatarProfile = By.xpath("//span[contains(@class,'avatar avatar-sm')]");
+
 
     public void searchDataTable(String dataName) {
         setTextAndKey(inputSearch, dataName, Keys.ENTER);
@@ -33,7 +35,7 @@ public class CommonPage {
         WebUI.clickElement(menuProducts);
     }
 
-    public CategoryPage openCategoriesPage() {
+    public CategoryPage openCategoryPage() {
         WebUI.clickElement(menuCategory);
 
         return new CategoryPage();

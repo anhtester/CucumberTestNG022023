@@ -7,31 +7,35 @@ import com.anhtester.pages.CommonPage;
 import com.anhtester.pages.LoginCMSPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class StepsCategory {
+public class StepsCategoryCMS {
 
-    TestContext testContext;
     LoginCMSPage loginCMSPage;
     CategoryPage categoryPage;
     CommonPage commonPage;
     ExcelHelpers excelHelpers;
 
-    public StepsCategory(TestContext testContext) {
-        this.testContext = testContext;
-        commonPage = testContext.getCommonPage();
+    public StepsCategoryCMS(TestContext testContext) {
         loginCMSPage = testContext.getLoginCMSPage();
+        categoryPage = testContext.getCategoryPage();
+        commonPage = testContext.getCommonPage();
     }
 
-    @Given("user has access to the Category page")
-    public void userHasAccessToTheCategoryPage() {
+    @Given("user on the category page")
+    public void userOnTheCategoryPage() {
         commonPage.clickMenuProducts();
-        categoryPage = commonPage.openCategoryPage();
+        commonPage.openCategoryPage();
     }
 
-    @When("user has finished entering the category information")
-    public void userHasFinishedEnteringTheCategoryInformation() {
+    @When("user click on the Add Category button")
+    public void userClickOnTheAddCategoryButton() {
         categoryPage.clickAddNewButton();
+    }
+
+    @And("user enter the category information")
+    public void userEnterTheCategoryInformation() {
         excelHelpers = new ExcelHelpers();
         excelHelpers.setExcelFile("src/test/resources/datatest/CMS.xlsx", "Category");
         categoryPage.inputDataCategory(
@@ -42,26 +46,20 @@ public class StepsCategory {
         );
     }
 
-    @And("click the Save button")
-    public void clickTheSaveButton() {
+    @And("user click on the Save button")
+    public void userClickOnTheSaveButton() {
         categoryPage.clickSaveButton();
     }
 
-    @When("user search a category existing {string}")
-    public void userSearchACategoryExisting(String categoryName) {
-        categoryPage.searchCategory(categoryName);
+    @Then("user should see a success message")
+    public void userShouldSeeASuccessMessage() {
+        categoryPage.verifyAlertSuccessDisplayed();
     }
 
-    @And("user edit the category information")
-    public void userEditTheCategoryInformation() {
-        commonPage.clickEditButton();
+    @And("the new category should be displayed on the category page")
+    public void theNewCategoryShouldBeDisplayedOnTheCategoryPage() {
         excelHelpers = new ExcelHelpers();
         excelHelpers.setExcelFile("src/test/resources/datatest/CMS.xlsx", "Category");
-        categoryPage.inputDataCategory(
-                excelHelpers.getCellData("category_name", 1),
-                excelHelpers.getCellData("order_number", 1),
-                excelHelpers.getCellData("meta_title", 1),
-                excelHelpers.getCellData("description", 1)
-        );
+        categoryPage.checkCategoryDisplayed(excelHelpers.getCellData("category_name", 1));
     }
 }

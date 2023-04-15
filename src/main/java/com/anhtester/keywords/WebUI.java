@@ -33,6 +33,20 @@ public class WebUI {
         PropertiesHelpers.loadAllFiles();
     }
 
+    public static void verifyElementVisible(By by) {
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        System.out.println("Verify " + by + " is displayed");
+        Assert.assertTrue(DriverManager.getDriver().findElement(by).isDisplayed(), "Element not visible.");
+    }
+
+    public static void verifyElementVisible(By by, String message) {
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        System.out.println("Verify " + by + " is displayed");
+        Assert.assertTrue(DriverManager.getDriver().findElement(by).isDisplayed(), message);
+    }
+
     public static void sleep(double second) {
         try {
             Thread.sleep((long) (1000 * second));

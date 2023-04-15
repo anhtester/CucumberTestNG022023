@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @CucumberOptions(
-        features = "src/test/resources/features/Categories",
+        features = "src/test/resources/features/Category/CategoryCMS.feature",
         glue = {"com.anhtester.stepdefinitions",
                 "com.anhtester.common",
                 "com.anhtester.hooks"
