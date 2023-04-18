@@ -5,6 +5,7 @@ import com.anhtester.hooks.TestContext;
 import com.anhtester.pages.CategoryPage;
 import com.anhtester.pages.CommonPage;
 import com.anhtester.pages.LoginCMSPage;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -61,5 +62,9 @@ public class StepsCategoryCMS {
         excelHelpers = new ExcelHelpers();
         excelHelpers.setExcelFile("src/test/resources/datatest/CMS.xlsx", "Category");
         categoryPage.checkCategoryDisplayed(excelHelpers.getCellData("category_name", 1));
+    }
+
+    @When("the user adds some categories below")
+    public void theUserAddsSomeCategoriesBelow(DataTable dataTable) {
     }
 }

@@ -6,16 +6,16 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @CucumberOptions(
-        features = "src/test/resources/features/CMS/Login/LoginCMS.feature",
+        features = "src/test/resources/features/CMS/Login/DataTableGherkin.feature",
         glue = {"com.anhtester.stepdefinitions",
                 "com.anhtester.common",
                 "com.anhtester.hooks"
         },
         plugin = {"pretty", "html:target/cucumber-html-report.html"},
-        tags = "@InvalidLoginMultiple"
+        tags = ""
 )
 @Test
-public class TestRunnerLoginCMS extends AbstractTestNGCucumberTests {
+public class TestRunnerDataTableSample extends AbstractTestNGCucumberTests {
     //Parallel Execution Scenario
     @Override
     @DataProvider(parallel = false)

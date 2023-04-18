@@ -5,19 +5,24 @@ import com.anhtester.driver.DriverManager;
 import com.anhtester.helpers.ExcelHelpers;
 import com.anhtester.hooks.TestContext;
 import com.anhtester.keywords.WebUI;
+import com.anhtester.models.Credentials;
 import com.anhtester.pages.CommonPage;
 import com.anhtester.pages.LoginCMSPage;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.util.List;
+import java.util.Map;
 
 public class StepsLoginCMS extends CommonPage {
 
     LoginCMSPage loginCMSPage;
     ExcelHelpers excelHelpers;
 
-    public StepsLoginCMS(TestContext testContext){
+    public StepsLoginCMS(TestContext testContext) {
         loginCMSPage = testContext.getLoginCMSPage();
     }
 
@@ -118,5 +123,37 @@ public class StepsLoginCMS extends CommonPage {
 
     @Then("user should receive an email with instructions to reset my password.")
     public void userShouldReceiveAnEmailWithInstructionsToResetMyPassword() {
+    }
+
+//    @When("user enter valid credentials to login")
+//    public void userEnterValidCredentialsToLogin(DataTable dataTable) {
+//        List<Map<String, String>> items = dataTable.asMaps();
+//
+//        for (Map<String, String> item : items) {
+//            String email = item.get("username");
+//            String password = item.get("password");
+//
+//            loginCMSPage.enterEmailAndPassword(email, password);
+//            loginCMSPage.clickLoginButton();
+//            //Kiểm tra message
+//            //Kiểm tra ở yên vị trí Login page
+//        }
+//    }
+
+    @DataTableType
+    public Credentials credentialsEntryTransformer(Map<String, String> row) {
+        return new Credentials(row.get("username"), row.get("password"));
+    }
+
+    @When("user enter valid credentials to login")
+    public void userEnterValidCredentialsToLogin(List<Credentials> credentials) {
+
+        for (Credentials credential : credentials) {
+            String email = credential.getUsername();
+            String password = credential.getPassword();
+
+            loginCMSPage.enterEmailAndPassword(email, password);
+            loginCMSPage.clickLoginButton();
+        }
     }
 }

@@ -23,6 +23,16 @@ Feature: Login CMS
       Then user should see an error message
       And stay on the login page
 
+   @InvalidLoginMultiple
+   Scenario: Invalid Login with multiple account
+      Given user on the login page
+      When user enter valid credentials to login
+         | username          | password |
+         | user@example.com  | 123      |
+         | admin@example.com | 123456   |
+      Then user should see an error message
+      And stay on the login page
+
    Scenario: Empty Username
       Given user on the login page
       When user leave the username field empty
