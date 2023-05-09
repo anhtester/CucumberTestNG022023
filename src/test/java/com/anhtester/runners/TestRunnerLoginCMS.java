@@ -11,7 +11,11 @@ import org.testng.annotations.Test;
                 "com.anhtester.common",
                 "com.anhtester.hooks"
         },
-        plugin = {"pretty", "html:target/cucumber-html-report.html"},
+        plugin = {
+                "pretty",
+                "html:target/cucumber-reports/LoginCMS.html",
+                "json:target/cucumber-reports/LoginCMS.json"
+        },
         tags = "@InvalidLoginMultiple"
 )
 @Test

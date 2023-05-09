@@ -6,12 +6,15 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @CucumberOptions(
-        features = "src/test/resources/features/Category/CategoryCMS.feature",
+        features = "src/test/resources/features/CMS/Category/CategoryCMS.feature",
         glue = {"com.anhtester.stepdefinitions",
                 "com.anhtester.common",
                 "com.anhtester.hooks"
         },
-        plugin = {"pretty", "html:target/cucumber-html-report.html"},
+        plugin = {"pretty",
+                "html:target/cucumber-reports/TestRunnerCategoryCMS.html",
+                "json:target/cucumber-reports/TestRunnerCategoryCMS.json"
+        },
         tags = ""
 )
 @Test

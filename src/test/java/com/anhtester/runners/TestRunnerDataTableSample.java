@@ -11,7 +11,10 @@ import org.testng.annotations.Test;
                 "com.anhtester.common",
                 "com.anhtester.hooks"
         },
-        plugin = {"pretty", "html:target/cucumber-html-report.html"},
+        plugin = {"pretty",
+                "html:target/cucumber-reports/TestRunnerDataTableSample.html",
+                "json:target/cucumber-reports/TestRunnerDataTableSample.json"
+        },
         tags = ""
 )
 @Test

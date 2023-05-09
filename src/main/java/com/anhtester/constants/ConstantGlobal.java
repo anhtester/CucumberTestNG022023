@@ -23,5 +23,6 @@ public class ConstantGlobal {
     public final static String RECORD_VIDEO_PATH = PropertiesHelpers.getValue("RECORD_VIDEO_PATH");
     public final static String EXTENT_REPORT_PATH = PropertiesHelpers.getValue("EXTENT_REPORT_PATH");
     public final static String AUTHOR = PropertiesHelpers.getValue("AUTHOR");
+    public final static String LOCATE = PropertiesHelpers.getValue("LOCATE");
 
 }

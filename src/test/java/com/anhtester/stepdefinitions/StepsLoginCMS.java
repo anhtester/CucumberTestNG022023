@@ -6,7 +6,6 @@ import com.anhtester.helpers.ExcelHelpers;
 import com.anhtester.hooks.TestContext;
 import com.anhtester.keywords.WebUI;
 import com.anhtester.models.Credentials;
-import com.anhtester.pages.CommonPage;
 import com.anhtester.pages.LoginCMSPage;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
@@ -17,7 +16,7 @@ import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
 
-public class StepsLoginCMS extends CommonPage {
+public class StepsLoginCMS {
 
     LoginCMSPage loginCMSPage;
     ExcelHelpers excelHelpers;

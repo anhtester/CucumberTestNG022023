@@ -2,6 +2,7 @@ package com.anhtester.stepdefinitions;
 
 import com.anhtester.constants.ConstantGlobal;
 import com.anhtester.helpers.CaptureHelpers;
+import com.anhtester.hooks.TestContext;
 import com.anhtester.keywords.WebUI;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -11,6 +12,10 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class StepsLoginCRM {
+
+    public StepsLoginCRM(TestContext testContext) {
+
+    }
 
     @Given("I am on the login page")
     public void iAmOnTheLoginPage() {
