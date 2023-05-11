@@ -66,5 +66,6 @@ public class StepsCategoryCMS {
 
     @When("the user adds some categories below")
     public void theUserAddsSomeCategoriesBelow(DataTable dataTable) {
+        
     }
 }

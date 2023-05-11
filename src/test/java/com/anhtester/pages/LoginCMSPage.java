@@ -15,19 +15,19 @@ public class LoginCMSPage extends CommonPage {
     private By buttonLogin = By.xpath("//button[normalize-space()='Login']");
     private By messageAlert = By.xpath("//div[@role='alert']");
 
-    public void goToLoginPage(){
+    public void goToLoginPage() {
         openURL(URL);
         //Xác nhận 1 cái element thuộc trang Login đang hiển thị
         verifyElementVisible(labelLoginPage);
     }
 
-    public void verifyRedirectToAdminPage(){
+    public void verifyRedirectToAdminPage() {
         verifyElementVisible(avatarProfile, "Can not redirect to Admin page.");
     }
 
-    public void userShouldSeeAnErrorMessage(){
+    public void userShouldSeeAnErrorMessage() {
         verifyElementVisible(messageAlert, "The Error message not visible.");
-        verifyEquals(getElementText(messageAlert), "Invalid login credentials", "The content of Error message not match.");
+        verifyEquals(getElementText(messageAlert), "Invalid login credentials 123", "The content of Error message not match.");
     }
 
     //Hàm xử lý đặc trưng cho Login Page
@@ -55,7 +55,6 @@ public class LoginCMSPage extends CommonPage {
         clickLoginButton();
         return new CommonPage();
     }
-
 
 
 }

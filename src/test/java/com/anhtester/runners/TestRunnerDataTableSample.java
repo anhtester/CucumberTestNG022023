@@ -13,7 +13,8 @@ import org.testng.annotations.Test;
         },
         plugin = {"pretty",
                 "html:target/cucumber-reports/TestRunnerDataTableSample.html",
-                "json:target/cucumber-reports/TestRunnerDataTableSample.json"
+                "json:target/cucumber-reports/TestRunnerDataTableSample.json",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         },
         tags = ""
 )

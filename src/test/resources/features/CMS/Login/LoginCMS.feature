@@ -29,7 +29,7 @@ Feature: Login CMS
       When user enter valid credentials to login
          | username          | password |
          | user@example.com  | 123      |
-         | admin@example.com | 123456   |
+         | admin@example.com | 123      |
       Then user should see an error message
       And stay on the login page
 

@@ -14,7 +14,8 @@ import org.testng.annotations.Test;
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/LoginCMS.html",
-                "json:target/cucumber-reports/LoginCMS.json"
+                "json:target/cucumber-reports/LoginCMS.json",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         },
         tags = "@InvalidLoginMultiple"
 )

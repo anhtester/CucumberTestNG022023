@@ -1,9 +1,10 @@
 package com.anhtester.hooks;
 
 import com.anhtester.driver.DriverManager;
-import com.anhtester.helpers.CaptureHelpers;
 import com.anhtester.helpers.PropertiesHelpers;
 import io.cucumber.java.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class CucumberHooks {
     @BeforeAll
@@ -43,8 +44,13 @@ public class CucumberHooks {
     public void afterStep(Scenario scenario) {
         System.out.println("================ afterStep ================");
         //validate if scenario has failed then Screenshot
+//        if (scenario.isFailed()) {
+//            CaptureHelpers.takeScreenshot(scenario.getName());
+//        }
+
         if (scenario.isFailed()) {
-            CaptureHelpers.takeScreenshot(scenario.getName());
+            final byte[] screenshot = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "Screenshot Failed");
         }
     }
 }

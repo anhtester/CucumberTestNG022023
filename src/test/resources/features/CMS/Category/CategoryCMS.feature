@@ -3,6 +3,7 @@ Feature: Add Category
    Background: Login as Admin role
       Given user logged in as an admin
 
+   @AddCategory
    Scenario: Add a new category
       Given user on the category page
       When user click on the Add Category button

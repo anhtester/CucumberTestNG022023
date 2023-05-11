@@ -77,7 +77,7 @@ public class StepsLoginCMS {
 
     @Then("user should see an error message")
     public void userShouldSeeAnErrorMessage() {
-
+        loginCMSPage.userShouldSeeAnErrorMessage();
     }
 
     @And("stay on the login page")
