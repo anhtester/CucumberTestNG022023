@@ -12,7 +12,9 @@ import org.testng.annotations.Test;
                 "com.anhtester.common",
                 "com.anhtester.hooks"
         },
-        plugin = {"pretty",
+        plugin = {
+                "com.anhtester.hooks.CucumberListener",
+                "pretty",
                 "html:target/cucumber-reports/TestRunnerLoginCRM.html",
                 "json:target/cucumber-reports/TestRunnerLoginCRM.json",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
