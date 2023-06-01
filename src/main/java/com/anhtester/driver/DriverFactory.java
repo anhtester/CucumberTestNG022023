@@ -49,11 +49,16 @@ public class DriverFactory {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(ConstantGlobal.HEADLESS);
-        options.addArguments("--remote-allow-origins=*");
+
+        if (ConstantGlobal.HEADLESS == true) {
+            options.addArguments("--headless=new");
+            options.addArguments("window-size=1800,900");
+        } else {
+            options.addArguments("--start-maximized");
+        }
 
         driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+
         return driver;
     }
 
@@ -63,11 +68,16 @@ public class DriverFactory {
         WebDriverManager.edgedriver().setup();
 
         EdgeOptions options = new EdgeOptions();
-        options.setHeadless(ConstantGlobal.HEADLESS);
-        options.addArguments("--remote-allow-origins=*");
+
+        if (ConstantGlobal.HEADLESS == true) {
+            options.addArguments("--headless=new");
+            options.addArguments("window-size=1800,900");
+        } else {
+            options.addArguments("--start-maximized");
+        }
 
         driver = new EdgeDriver(options);
-        driver.manage().window().maximize();
+
         return driver;
     }
 
@@ -77,10 +87,16 @@ public class DriverFactory {
         WebDriverManager.firefoxdriver().setup();
 
         FirefoxOptions options = new FirefoxOptions();
-        options.setHeadless(ConstantGlobal.HEADLESS);
+
+        if (ConstantGlobal.HEADLESS == true) {
+            options.addArguments("--headless=new");
+            options.addArguments("window-size=1800,900");
+        } else {
+            options.addArguments("--start-maximized");
+        }
 
         driver = new FirefoxDriver(options);
-        driver.manage().window().maximize();
+        
         return driver;
     }
 
