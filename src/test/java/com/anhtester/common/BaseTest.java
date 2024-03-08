@@ -2,7 +2,6 @@ package com.anhtester.common;
 
 import com.anhtester.constants.ConstantGlobal;
 import com.anhtester.driver.DriverManager;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -50,38 +49,47 @@ public class BaseTest {
     private static WebDriver initChromeDriver() {
         WebDriver driver;
         System.out.println("Launching Chrome browser...");
-        WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(ConstantGlobal.HEADLESS);
-        options.addArguments("--remote-allow-origins=*");
+        if (ConstantGlobal.HEADLESS == true) {
+            options.addArguments("--headless=new");
+            options.addArguments("window-size=1800,900");
+        } else {
+            options.addArguments("--start-maximized");
+        }
 
         driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+
         return driver;
     }
 
     private static WebDriver initEdgeDriver() {
         WebDriver driver;
         System.out.println("Launching Edge browser...");
-        WebDriverManager.edgedriver().setup();
 
         EdgeOptions options = new EdgeOptions();
-        options.setHeadless(ConstantGlobal.HEADLESS);
-        options.addArguments("--remote-allow-origins=*");
+
+        if (ConstantGlobal.HEADLESS == true) {
+            options.addArguments("--headless=new");
+            options.addArguments("window-size=1800,900");
+        } else {
+            options.addArguments("--start-maximized");
+        }
 
         driver = new EdgeDriver(options);
-        driver.manage().window().maximize();
+
         return driver;
     }
 
     private static WebDriver initFirefoxDriver() {
         WebDriver driver;
         System.out.println("Launching Firefox browser...");
-        WebDriverManager.firefoxdriver().setup();
 
         FirefoxOptions options = new FirefoxOptions();
-        options.setHeadless(ConstantGlobal.HEADLESS);
+        if (ConstantGlobal.HEADLESS == true) {
+            options.addArguments("--headless=new");
+            options.addArguments("window-size=1800,900");
+        }
 
         driver = new FirefoxDriver(options);
         driver.manage().window().maximize();

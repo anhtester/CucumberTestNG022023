@@ -2,7 +2,6 @@ package com.anhtester.driver;
 
 import com.anhtester.constants.ConstantGlobal;
 import com.anhtester.helpers.PropertiesHelpers;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -46,7 +45,6 @@ public class DriverFactory {
     private WebDriver initChromeDriver() {
         WebDriver driver;
         System.out.println("Launching Chrome browser...");
-        WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
 
@@ -65,7 +63,6 @@ public class DriverFactory {
     private WebDriver initEdgeDriver() {
         WebDriver driver;
         System.out.println("Launching Edge browser...");
-        WebDriverManager.edgedriver().setup();
 
         EdgeOptions options = new EdgeOptions();
 
@@ -84,7 +81,6 @@ public class DriverFactory {
     private WebDriver initFirefoxDriver() {
         WebDriver driver;
         System.out.println("Launching Firefox browser...");
-        WebDriverManager.firefoxdriver().setup();
 
         FirefoxOptions options = new FirefoxOptions();
 
