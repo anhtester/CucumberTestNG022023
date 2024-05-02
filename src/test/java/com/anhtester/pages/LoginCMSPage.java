@@ -27,7 +27,7 @@ public class LoginCMSPage extends CommonPage {
 
     public void userShouldSeeAnErrorMessage() {
         verifyElementVisible(messageAlert, "The Error message not visible.");
-        verifyEquals(getElementText(messageAlert), "Invalid login credentials 123", "The content of Error message not match.");
+        verifyEquals(getElementText(messageAlert), "Invalid login credentials", "The content of Error message not match.");
     }
 
     //Hàm xử lý đặc trưng cho Login Page

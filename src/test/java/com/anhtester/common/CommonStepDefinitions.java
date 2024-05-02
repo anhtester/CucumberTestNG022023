@@ -22,6 +22,7 @@ public class CommonStepDefinitions {
         this.testContext = testContext;
         commonPage = testContext.getCommonPage();
         loginCMSPage = testContext.getLoginCMSPage();
+        loginCRMPage = testContext.getLoginCRMPage();
     }
 
     @Given("user logged in as an admin")
@@ -44,4 +45,8 @@ public class CommonStepDefinitions {
 
     }
 
+    @Given("user logged in the CRM system with {string} role")
+    public void userLoggedInTheCRMSystemWithRole(String roleName) {
+        loginCRMPage.loginAdminRole();
+    }
 }

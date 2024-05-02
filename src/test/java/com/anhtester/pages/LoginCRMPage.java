@@ -1,11 +1,14 @@
 package com.anhtester.pages;
 
+import com.anhtester.helpers.PropertiesHelpers;
 import org.openqa.selenium.By;
 
-import static com.anhtester.keywords.WebUI.clickElement;
-import static com.anhtester.keywords.WebUI.setText;
+import static com.anhtester.keywords.WebUI.*;
 
 public class LoginCRMPage {
+
+    String pageUrl = "https://crm.anhtester.com/admin/authentication";
+
     //Khai báo Objects
     private By inputEmail = By.xpath("//input[@id='email']");
     private By inputPassword = By.xpath("//input[@id='password']");
@@ -21,5 +24,13 @@ public class LoginCRMPage {
 
     public void clickLoginButton() {
         clickElement(buttonLogin);
+    }
+
+    public CommonPage loginAdminRole() {
+        openURL(pageUrl);
+        setText(inputEmail, PropertiesHelpers.getValue("EMAIL"));
+        setText(inputPassword, PropertiesHelpers.getValue("PASSWORD"));
+        clickLoginButton();
+        return new CommonPage();
     }
 }
