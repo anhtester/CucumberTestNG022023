@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @CucumberOptions(
-        features = "src/test/resources/features/CRM/Login/LoginCRM.feature",
+        features = "src/test/resources/features/CRM/LoginCRM.feature",
         glue = {
                 "com.anhtester.stepdefinitions",
                 "com.anhtester.common",

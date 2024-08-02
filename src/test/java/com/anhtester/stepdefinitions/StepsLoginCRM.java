@@ -20,7 +20,7 @@ public class StepsLoginCRM {
     @Given("I am on the login page")
     public void iAmOnTheLoginPage() {
         //BaseTest.createDriver("edge");
-        WebUI.openURL(ConstantGlobal.URL);
+        WebUI.openURL(ConstantGlobal.URL_CRM);
     }
 
     @When("I enter my username and password")

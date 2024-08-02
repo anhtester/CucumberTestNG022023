@@ -1,4 +1,4 @@
-package com.anhtester.common;
+package com.anhtester.stepdefinitions;
 
 import com.anhtester.hooks.TestContext;
 import com.anhtester.pages.CategoryPage;
@@ -10,7 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
 
-public class CommonStepDefinitions {
+public class CommonSteps {
 
     TestContext testContext;
     LoginCRMPage loginCRMPage;
@@ -18,7 +18,7 @@ public class CommonStepDefinitions {
     CategoryPage categoryPage;
     CommonPage commonPage;
 
-    public CommonStepDefinitions(TestContext testContext) {
+    public CommonSteps(TestContext testContext) {
         this.testContext = testContext;
         commonPage = testContext.getCommonPage();
         loginCMSPage = testContext.getLoginCMSPage();
